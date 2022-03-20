@@ -20,10 +20,9 @@ body {
    flex-wrap: wrap;
 }
 .divGlavnaSelekcija {
-  
    justify-content: center;
-   margin-top: 2%;
-   background-image: url('../Slike/back6.jpg');
+   top: 0;
+   background-image: url("../Slike/back6.jpg");
 }
 .novaKnjigaGlavni {
    /* flex-direction: row; */
@@ -52,11 +51,11 @@ body {
    color: #cee1e9;
    width: 100%;
    bottom: 0px;
-   
+
    margin-bottom: 1%;
    /* background-image: linear-gradient(#fdbdff, #d9aeec, #f7d3f8); */
 
-   background-image: url('../Slike/back6.jpg');
+   background-image: url("../Slike/back6.jpg");
 
    flex: 0 0 auto;
 }
@@ -113,7 +112,7 @@ button:disabled {
       #272431 51%,
       #0c1216 100%
    );
-   
+
    background-color: #000105;
    color: white;
 }
@@ -184,7 +183,6 @@ input,
    max-height: 400px;
 }
 
-
 .redIznajmljivanja {
    /* flex-direction: column; */
    margin-left: 10px;
@@ -225,7 +223,7 @@ table {
    border-collapse: collapse;
 }
 .divZaClana {
-   border: 1px solid  rgb(47, 3, 46);
+   border: 1px solid rgb(47, 3, 46);
    border-width: 1px;
    border-radius: 10px;
    background-color: #d9a7c7;

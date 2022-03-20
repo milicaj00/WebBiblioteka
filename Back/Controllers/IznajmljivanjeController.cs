@@ -83,16 +83,17 @@ namespace Controllers
                 }
 
                 var spoj = await Context.Iznajmljivanje
-                .Where(p => p.Clan.BrojClanskeKarte == clanskaKarta && p.Knjiga.ID == knjigaID)
+                .Where(p => p.Clan.BrojClanskeKarte == clanskaKarta)
                 .ToListAsync();
 
-                if (spoj.Count != 0)
-                {
-                    return StatusCode(410, "Vec ste iznajmili ovu knjigu!");
-                }
                 if (spoj.Count >= 3)
                 {
                     return StatusCode(420, "Ne mozete iznajmiti vise od 3 knjige!");
+                }
+                var k = spoj.Where(p => p.Knjiga.ID == knjigaID).FirstOrDefault();
+                 if (k != null)
+                {
+                    return StatusCode(410, "Vec ste iznajmili ovu knjigu!");
                 }
 
                 novi.Clan = clan;

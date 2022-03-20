@@ -10,7 +10,7 @@ export class Korisnik {
         let pom = document.querySelector(".divZaSelekciju");
         if (pom != null) {
             pom.style.display = 'block';
-         
+
         }
     }
 
@@ -113,7 +113,7 @@ export class Korisnik {
 
                         if (p.ok) {
 
-                           
+
                             const date = new Date(data.clanarinaDo);
 
                             alert(`Uspešno plaćena članarina korisniku:\n${data.ime} ${data.prezime}\nBroj članske karte: ${data.brojClanskeKarte}\nČlanarina važi do: ${date.toLocaleDateString()}`);
@@ -157,6 +157,15 @@ export class Korisnik {
         input.className = "ime";
         input.name = "ime";
         input.required = true;
+
+        input.onkeyup = () => {
+            let pom = input.value;
+            if (pom != null) {
+                pom = pom.charAt(0).toUpperCase() + pom.slice(1);
+                input.value = pom;
+
+            }
+        }
         red.appendChild(input);
 
         red = document.createElement("div");
@@ -166,12 +175,21 @@ export class Korisnik {
         label.innerHTML = "Prezime: ";
         red.appendChild(label);
 
-        input = document.createElement("input");
-        input.type = "text";
-        input.name = "prezime";
-        input.className = "prezime";
-        input.required = true;
-        red.appendChild(input);
+        let prezime = document.createElement("input");
+        prezime.type = "text";
+        prezime.name = "prezime";
+        prezime.className = "prezime";
+        prezime.required = true;
+        prezime.onkeyup = () => {
+            let pom = prezime.value;
+            if (pom != null) {
+                pom = pom.charAt(0).toUpperCase() + pom.slice(1);
+                prezime.value = pom;
+
+            }
+        }
+        red.appendChild(prezime);
+
 
         red = document.createElement("div");
         forma.appendChild(red);
@@ -180,12 +198,12 @@ export class Korisnik {
         label.innerHTML = "Email: ";
         red.appendChild(label);
 
-        input = document.createElement("input");
-        input.type = "email";
-        input.name = "email";
-        input.className = "email";
-        input.required = true;
-        red.appendChild(input);
+        let mail = document.createElement("input");
+        mail.type = "email";
+        mail.name = "email";
+        mail.className = "email";
+        mail.required = true;
+        red.appendChild(mail);
 
         // red = document.createElement("div");
         // forma.appendChild(red);
@@ -216,11 +234,12 @@ export class Korisnik {
             const prezime = forma.querySelector("input.prezime").value;
             const email = forma.querySelector("input.email").value;
             // const br = forma.querySelector("input.clKarta").value;
-            const mesec = forma.querySelector(`input[name="brojMeseci"]:checked`).value;
+            let mesec = forma.querySelector(`input[name="brojMeseci"]:checked`);
 
-            if (email == "" ||  ime === "" || prezime === "" || mesec == null) {
+            if (email == "" || ime === "" || prezime === "" || mesec == null) {
                 alert("Morate uneti sve podatke!");
             }
+            mesec = mesec.value;
 
             const mail = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
 
@@ -243,7 +262,7 @@ export class Korisnik {
         red.appendChild(ok);
         ok.innerHTML = "Nazad";
         // ok.onclick = () => window.open('', '_self').close();
-        
+
         ok.onclick = ev => this.nazad();
     }
 
@@ -271,7 +290,7 @@ export class Korisnik {
                 p.json().then(data => {
                     if (p.ok) {
                         // pvde mozda da mi iscrta sve podatke
-                        window.alert('Dodat je član:  ' + data.ime + ' ' + data.prezime + ', sa brojem članske karte: '+ data.brojClanskeKarte);
+                        window.alert('Dodat je član:  ' + data.ime + ' ' + data.prezime + ', sa brojem članske karte: ' + data.brojClanskeKarte);
                         //console.log(data);
                         // alert("Uspešno dodat novi član!");
                     }
@@ -294,15 +313,17 @@ export class Korisnik {
     }
 
     ocisti() {
-        // let input = document.getElementsByTagName('input');
+
         let input = document.querySelectorAll('input');
-        input.forEach ( i => {
+        input.forEach(i => {
             i.value = '';
         })
 
-        // for (let i = 0; i < input.length; i++) {
-        //     input[i].value = '';
-        // }
+        input = document.querySelector('input[name="brojMeseci"]:checked');
+        if (input != null) {
+            input.checked = false;
+        }
+
     }
 
     brisiClanove() {
@@ -384,7 +405,14 @@ export class Korisnik {
                             let data = document.createElement("td");
                             let btn = document.createElement("button");
                             btn.innerHTML = "Obrisi";
-                            btn.onclick = ev => this.obrisiClana(korisnik.id, red);
+                            btn.onclick = ev =>{
+                                if (window.confirm('Da li zaista želite da izbrišete ovog člana?'))
+                                {
+                                    this.obrisiClana(korisnik.id, red);
+                                }
+                                
+
+                            } 
                             data.appendChild(btn);
                             red.appendChild(data);
 
@@ -452,7 +480,7 @@ export class Korisnik {
                             alert("Traženi član ne postoji!");
                         }
                         else if (p.status == 440) {
-                            alert("Nije moguce izbrisati korisnika jer je iznajmio knjigu!!");
+                            alert("Nije moguce izbrisati korisnika jer je iznajmio knjigu!");
                         }
                         else {
                             alert("Došlo je do greške prilikom brisanja člana!");
@@ -495,22 +523,22 @@ export class Korisnik {
                                 red.appendChild(l);
 
                                 const date = new Date(element.datum);
-    
-                                    l = document.createElement("label");
-                                    l.innerHTML += ", datum iznajmljivanja: " + date.toLocaleDateString();
-                                    red.appendChild(l);
+
+                                l = document.createElement("label");
+                                l.innerHTML += ", datum iznajmljivanja: " + date.toLocaleDateString();
+                                red.appendChild(l);
 
                                 if (btn === true) {
 
                                     // l = document.createElement("label");
                                     // l.innerHTML = element.knjiga.autor.ime + ' ' + element.knjiga.autor.prezime;
                                     // red.appendChild(l);
-    
+
                                     // l = document.createElement("label");
                                     // l.innerHTML = element.knjiga.godina;
                                     // red.appendChild(l);
-    
-                                    
+
+
 
                                     let ok = document.createElement("button");
                                     red.appendChild(ok);
@@ -525,13 +553,13 @@ export class Korisnik {
                             });
 
                         }
-                        
+
                         else if (p.status == 404) {
                             alert("Nisu pronađeni podaci o datom članu!");
                         }
-                        
+
                         else {
-                            
+
                             alert("Došlo je do greške prilikom citanja podataka!");
                         }
 
@@ -563,10 +591,10 @@ export class Korisnik {
         red.appendChild(ok);
         ok.innerHTML = "Ok";
         ok.onclick = ev => {
-          
+
             this.infoOClanu(forma);
         }
-      
+
         ok = document.createElement("button");
         red.appendChild(ok);
         ok.innerHTML = "Nazad";
@@ -677,4 +705,5 @@ export class Korisnik {
 
             });
     }
+
 }

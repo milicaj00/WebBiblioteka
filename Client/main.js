@@ -26,13 +26,13 @@ fetch('https://localhost:5001/Biblioteka/Biblioteke')
 
                 let dugmici = document.querySelectorAll('.btnGlavni');
                 dugmici.forEach( d => {
-                    d.style.backgroundColor = '#7a4c70';
+                    d.style.backgroundImage = 'linear-gradient(to right, #303c44 0%,#a391e5 51%,  #393c3e 100%)';
                 })
-                btn.style.backgroundColor = 'white';
+                btn.style.backgroundImage = 'linear-gradient(#060b2d,#a391e5, #060b2d)';
                 
             }
             if( i == 1){
-                btn.style.backgroundColor = 'white';
+                btn.style.backgroundImage = 'linear-gradient(#060b2d,#a391e5, #060b2d)';
                 
                 const b = new Biblioteka(element.id, element.naziv, element.adresa, element.email, element.brojTelefona);
                 b.crtajBiblioteku(document.body);

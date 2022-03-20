@@ -38,16 +38,7 @@ namespace Controllers
                 {
                     return StatusCode(440,"Nije unet mail!");
                 }
-                if (noviClan.BrojClanskeKarte == 0){
-                    return StatusCode(440,"Morate uneti broj clanske karte!");
-                }
-
-                // Clan pom = await Context.Clanovi.Where( p => 
-                //             p.BrojClanskeKarte == noviClan.BrojClanskeKarte).FirstOrDefaultAsync();
-                    
-                // if (pom != null){
-                //     return StatusCode(420, "Postoji clan sa tim brojem clanske karte!");
-                // }
+        
 
                 noviClan.BrojClanskeKarte = (new Random()).Next(999);
 
@@ -70,6 +61,7 @@ namespace Controllers
         {
             try
             {
+                
                 var iznajmljena = await Context.Iznajmljivanje.Where( k => k.Clan.ID == clanID).FirstOrDefaultAsync();
 
                 if (iznajmljena != null){
@@ -81,7 +73,7 @@ namespace Controllers
                 if (clan == null){
                     return StatusCode(404, "Clan nije pronadjen!");
                 }
-
+               
                 Context.Clanovi.Remove(clan);
                 await Context.SaveChangesAsync();
 

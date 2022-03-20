@@ -76,9 +76,9 @@ export class Knjiga {
             kolicina.style.color = "#2a053b";
         }
         red.onmouseleave = ev => {
-            autor.style.color = "#cccccc";
-            godina.style.color = "#cccccc";
-            kolicina.style.color = "#cccccc";
+            autor.style.color = "white";
+            godina.style.color = "white";
+            kolicina.style.color = "white";
         }
 
         const dugme = document.createElement("td");
@@ -181,7 +181,7 @@ export class Knjiga {
 
         divZaInfo = this.red(divZaInfoKnjige);
         label = document.createElement("label");
-        label.innerHTML = this.godina;
+        label.innerHTML = 'Godina izdanja: ' + this.godina;
         divZaInfo.appendChild(label);
 
         divZaInfo = this.red(divZaInfoKnjige);
