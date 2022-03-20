@@ -1,0 +1,232 @@
+body {
+   background-size: cover;
+   background-position: top center;
+   align-items: center;
+   color: #293940;
+}
+
+.divGlavnaSelekcija,
+.novaKnjigaGlavni,
+.kontJosKnjiga,
+.kontBiblioteka,
+.divTabele,
+.kontNovaKnjiga,
+.redIznajmljivanja,
+.formaDodajKorisnika,
+.redRadioButtons {
+   display: flex;
+   align-items: center;
+   align-self: center;
+   flex-wrap: wrap;
+}
+.divGlavnaSelekcija {
+  
+   justify-content: center;
+   margin-top: 2%;
+   background-image: url('../Slike/back6.jpg');
+}
+.novaKnjigaGlavni {
+   /* flex-direction: row; */
+   justify-content: space-evenly;
+}
+.kontJosKnjiga {
+   flex-direction: column;
+}
+.btnGlavni {
+   align-self: center;
+   max-width: fit-content;
+}
+.kontBiblioteka {
+   flex-direction: column;
+   gap: 2vw;
+}
+.disappear {
+   visibility: hidden;
+}
+.kontInfo {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-self: baseline;
+   text-align: left;
+   color: #cee1e9;
+   width: 100%;
+   bottom: 0px;
+   
+   margin-bottom: 1%;
+   /* background-image: linear-gradient(#fdbdff, #d9aeec, #f7d3f8); */
+
+   background-image: url('../Slike/back6.jpg');
+
+   flex: 0 0 auto;
+}
+.divZaSelekciju {
+   color: #293940;
+}
+.infoData,
+.tdKnjiga {
+   display: flex;
+   flex-direction: column;
+}
+.prikazSlika {
+   background-color: #cccccc;
+   border-radius: 8px;
+   max-width: 100%;
+   width: 100px;
+   max-height: 100%;
+   object-fit: cover;
+   object-position: bottom;
+}
+button {
+   background-image: linear-gradient(
+      to right,
+      #303c44 0%,
+      #a391e5 51%,
+      #393c3e 100%
+   );
+   background-color: #7babbf;
+   color: #293940;
+   font-size: 15px;
+   transition-duration: 0.4s;
+   max-width: 200px;
+   margin: 7px;
+   min-height: 40px;
+   padding: 10px;
+   border-color: #293940;
+   border-width: 1px;
+   text-align: center;
+   text-transform: uppercase;
+   background-size: 200% auto;
+   color: white;
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+}
+button:hover {
+   background-position: right center;
+   color: #fff;
+   text-decoration: none;
+}
+button:disabled {
+   background-image: linear-gradient(
+      to right,
+      #090c0e 0%,
+      #272431 51%,
+      #0c1216 100%
+   );
+   
+   background-color: #000105;
+   color: white;
+}
+tr.trKnjiga:hover {
+   background-color: #839ca7;
+}
+
+.redKorisnik {
+   /* background-image: linear-gradient(#e6dce2, #d5a0c1); */
+   /* color: #96abfb; */
+   background-color: #d7f2f7;
+}
+.redKorisnik:hover {
+   background-color: transparent;
+}
+select,
+input,
+.opisKnjige {
+   border: none;
+   background-image: linear-gradient(#bee5f3, #bebef5);
+   border-radius: 10px;
+   font-size: 20px;
+   margin: 10px;
+   background-color: #bee5f3;
+   color: #293940;
+   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+   padding: 5px;
+   text-align: left;
+}
+#brojKarte,
+.clKarta,
+.kolicinaUnos {
+   max-width: 100px;
+}
+.divGodina {
+   display: flex;
+   max-width: fit-content;
+}
+.opisKnjige {
+   width: 600px;
+   /* width:200%; */
+   min-width: 50px;
+   font-size: 14px;
+   display: flex;
+   border-radius: 10px;
+   max-height: 250px;
+}
+.nazivKnjige,
+.infoKnjige {
+   color: #293940;
+}
+.crveniRed {
+   background-color: #7babbf;
+   opacity: 0.7;
+}
+.formaknjige {
+   position: absolute;
+   margin-bottom: 20%;
+}
+.kontNovaKnjiga,
+.formaDodajKorisnika {
+   flex-direction: column;
+}
+.velikaSlika {
+   border-radius: 10px;
+   width: 100%;
+   height: auto;
+   max-height: 400px;
+}
+
+
+.redIznajmljivanja {
+   /* flex-direction: column; */
+   margin-left: 10px;
+}
+.formaClanovi {
+   display: flex;
+   flex-direction: column;
+}
+a {
+   color: #5a8b9f;
+}
+a:hover {
+   color: rgb(199, 215, 223);
+}
+a:active {
+   color: blue;
+}
+label,
+b,
+th,
+span {
+   font-size: larger;
+}
+.divZaClana {
+   display: flex;
+}
+.infoOClanu {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-right: 1px solid rgb(47, 3, 46);
+}
+tr.redKorisnik {
+   border: 1px solid rgb(47, 3, 46);
+   border-width: 1px;
+}
+table {
+   border-collapse: collapse;
+}
+.divZaClana {
+   border: 1px solid  rgb(47, 3, 46);
+   border-width: 1px;
+   border-radius: 10px;
+   background-color: #d9a7c7;
+}

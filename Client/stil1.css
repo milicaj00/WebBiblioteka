@@ -1,0 +1,35 @@
+body {
+   background-size: cover;
+   background-position: top center;
+   align-items: center;
+
+   background-color: #cccccc;
+
+   background-image: linear-gradient(
+      to right,
+      #cccccc 0%,
+      #a391e5 51%,
+      #cccccc 100%
+   );
+}
+.sveZaKnjigu {
+   margin-top: 100px;
+   justify-content: center;
+   gap: 4vw;
+
+   display: flex;
+   align-items: center;
+   align-self: center;
+   flex-wrap: wrap;
+
+}
+.divZaOpis {
+   max-width: 600px;
+}
+.divZaIfoKnjige {
+   align-self: center;
+   justify-content: space-evenly;
+}
+.InfoNazivKnjige {
+   font-size: 50px;
+}
