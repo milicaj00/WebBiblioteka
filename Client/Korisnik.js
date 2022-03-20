@@ -112,7 +112,11 @@ export class Korisnik {
                     (data => {
 
                         if (p.ok) {
-                            alert("Uspešno plaćena članarina!");
+
+                           
+                            const date = new Date(data.clanarinaDo);
+
+                            alert(`Uspešno plaćena članarina korisniku:\n${data.ime} ${data.prezime}\nBroj članske karte: ${data.brojClanskeKarte}\nČlanarina važi do: ${date.toLocaleDateString()}`);
                         }
                         else if (p.status == 404) {
                             alert("Traženi član ne postoji!");
@@ -124,7 +128,7 @@ export class Korisnik {
                     })
 
             });
-        //location.reload();
+        this.ocisti();
     }
 
     noviKorisnik(host) {
@@ -290,11 +294,15 @@ export class Korisnik {
     }
 
     ocisti() {
-        let input = document.getElementsByTagName('input');
+        // let input = document.getElementsByTagName('input');
+        let input = document.querySelectorAll('input');
+        input.forEach ( i => {
+            i.value = '';
+        })
 
-        for (let i = 0; i < input.length; i++) {
-            input[i].value = '';
-        }
+        // for (let i = 0; i < input.length; i++) {
+        //     input[i].value = '';
+        // }
     }
 
     brisiClanove() {
@@ -471,9 +479,9 @@ export class Korisnik {
                     (data => {
                         if (p.ok) {
 
-                            if(data.length == 0){
-                                alert('Ovaj član nije iynajmio nijednu knjigu!');
-                            }
+                            // if(data.length == 0){
+                            //     alert('Ovaj član nije iynajmio nijednu knjigu!');
+                            // }
 
                             data.forEach(element => {
                                 //console.log(element);
@@ -486,6 +494,12 @@ export class Korisnik {
                                 l.innerHTML = element.knjiga.naziv;
                                 red.appendChild(l);
 
+                                const date = new Date(element.datum);
+    
+                                    l = document.createElement("label");
+                                    l.innerHTML += ", datum iznajmljivanja: " + date.toLocaleDateString();
+                                    red.appendChild(l);
+
                                 if (btn === true) {
 
                                     // l = document.createElement("label");
@@ -496,11 +510,7 @@ export class Korisnik {
                                     // l.innerHTML = element.knjiga.godina;
                                     // red.appendChild(l);
     
-                                    // const date = new Date(element.datum);
-    
-                                    l = document.createElement("label");
-                                    l.innerHTML += "Datum iznajmljivanja: " + date.toLocaleDateString();
-                                    red.appendChild(l);
+                                    
 
                                     let ok = document.createElement("button");
                                     red.appendChild(ok);
@@ -515,10 +525,13 @@ export class Korisnik {
                             });
 
                         }
+                        
                         else if (p.status == 404) {
                             alert("Nisu pronađeni podaci o datom članu!");
                         }
+                        
                         else {
+                            
                             alert("Došlo je do greške prilikom citanja podataka!");
                         }
 
@@ -600,7 +613,15 @@ export class Korisnik {
 
                             naziv = document.createElement("span");
                             naziv.innerText = "Broj članske karte: " + data.brojClanskeKarte;
+                            red.appendChild(naziv);
 
+                            naziv = document.createElement("span");
+                            const date = new Date(data.clanarinaDo);
+                            naziv.innerText = "Članirina važi do: " + date.toLocaleDateString();
+                            red.appendChild(naziv);
+
+                            naziv = document.createElement("span");
+                            naziv.innerText = "Email: " + data.email;
                             red.appendChild(naziv);
 
                             this.iznajmljene(data.id, divZaClana, true);

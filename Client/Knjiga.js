@@ -269,6 +269,10 @@ export class Knjiga {
                     alert('Nema korisnika sa tim brojem članske karte!');
                     this.refres();
                 }
+                else if (p.status == 414) {
+                    alert("Istekla članarina, nije moguće iznajmiti ovu knjigu!");
+                    this.refres();
+                }
                 else if (p.status == 410) {
                     window.alert('Već ste iznajmili ovu knjigu!');
                     this.refres();

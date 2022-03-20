@@ -120,7 +120,7 @@ namespace Controllers
                 Context.Clanovi.Update(clan);
                 await Context.SaveChangesAsync();
 
-                return Ok("Uspesno placena clanarina!");
+                return Ok(clan);
             }
             catch (Exception e)
             {

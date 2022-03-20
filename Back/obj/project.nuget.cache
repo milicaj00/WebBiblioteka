@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+03HPB1BgPvb3BZxNiLHEnhsHMzaiR+0inEqw5wFTjM84MbXICIsf0JHl/PSJBEadlMvn0IqCow9xzVCaSRsZA==",
+  "dgSpecHash": "4g8BtwBxdHKu8it307YttJS1ODMMaNEkgM4LYm6bp52N/+v8MEhi/TMJ0OVb8ECqzNUVG2LEMxIw/zvAgjgyqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Milica\\Desktop\\Biblioteka\\Back\\Biblioteka.csproj",
+  "projectFilePath": "C:\\Users\\Milica\\Desktop\\WebBiblioteka-1\\Back\\Biblioteka.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Milica\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Milica\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

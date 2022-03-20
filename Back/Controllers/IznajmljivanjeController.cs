@@ -78,6 +78,9 @@ namespace Controllers
                 {
                     return StatusCode(404, "Clan nije pronadjen!");
                 }
+                if(clan.ClanarinaDo < DateTime.Today){
+                    return StatusCode(414, "Clan nije platio clanarinu!");
+                }
 
                 var spoj = await Context.Iznajmljivanje
                 .Where(p => p.Clan.BrojClanskeKarte == clanskaKarta && p.Knjiga.ID == knjigaID)
