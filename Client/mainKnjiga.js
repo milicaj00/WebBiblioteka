@@ -1,6 +1,6 @@
 import { Knjiga } from "./Knjiga.js";
 
-const params = window.my_special_setting;
+const params = window.knjiga;
 //console.log(params);
 
 const knjiga = new Knjiga(params);

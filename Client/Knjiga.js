@@ -34,9 +34,9 @@ export class Knjiga {
         slika.src = this.slika;
         slika.className = "prikazSlika";
         redSlika.appendChild(slika);
-        slika.onclick = ev => {
+        slika.onclick = () => {
             let novi = window.open('http://127.0.0.1:5500/Client/InfoKnjiga.html');
-            novi.my_special_setting = this;
+            novi.knjiga = this;
         }
 
         const naziv = document.createElement("b");
@@ -44,9 +44,9 @@ export class Knjiga {
         naziv.className = "nazivKnjige";
         info.appendChild(naziv);
 
-        naziv.onclick = ev => {
+        naziv.onclick = () => {
             let novi = window.open('http://127.0.0.1:5500/Client/InfoKnjiga.html');
-            novi.my_special_setting = this;
+            novi.knjiga = this;
         }
 
         let autor = document.createElement("span");

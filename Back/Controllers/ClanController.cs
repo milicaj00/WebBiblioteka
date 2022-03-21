@@ -40,7 +40,14 @@ namespace Controllers
                 }
         
 
-                noviClan.BrojClanskeKarte = (new Random()).Next(999);
+                Clan pom;
+                do {
+                    noviClan.BrojClanskeKarte = (new Random()).Next(99);
+
+                    pom = await Context.Clanovi.Where( p => 
+                            p.BrojClanskeKarte == noviClan.BrojClanskeKarte).FirstOrDefaultAsync();
+                }
+                while (pom != null);
 
                 noviClan.ClanOD = DateTime.Today;
 

@@ -269,7 +269,11 @@ export class Korisnik {
     async unesiKorisnika(ime, prezime, email, mesec) {
 
         let today = new Date();
-        today.setMonth(today.getMonth() + mesec);
+        // console.log(today);
+        today.setMonth(today.getMonth() +parseInt(mesec));
+        // console.log(today.getMonth());
+        // console.log(today.getMonth()+ parseInt(mesec));
+        // return;
 
         await fetch("https://localhost:5001/Clan/DodajClana",
             {
